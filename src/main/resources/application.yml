@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    password: 3141592653589+Pi
+    url: jdbc:mysql://localhost:3306/capital?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: root
+    initialization-mode: always
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  sql:
+    init:
+      mode: always
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
