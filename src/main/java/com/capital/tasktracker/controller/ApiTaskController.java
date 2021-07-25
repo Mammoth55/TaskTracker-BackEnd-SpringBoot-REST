@@ -22,8 +22,8 @@ public class ApiTaskController {
     }
 
     @GetMapping("/tasks/actual")
-    public ResponseEntity<TaskDtoResponse> getAllTasksActualAndPriority() {
-        return taskService.getAllTasksActualAndPriority();
+    public ResponseEntity<TaskDtoResponse> getAllTasksActual() {
+        return taskService.getAllTasksActual();
     }
 
     @GetMapping("/tasks/{taskId}")

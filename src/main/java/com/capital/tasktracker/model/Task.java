@@ -15,7 +15,7 @@ public class Task {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "text", nullable = true, length = 999)
+    @Column(name = "text", length = 999)
     private String text;
 
     @Column(name = "time", nullable = false)
@@ -24,12 +24,12 @@ public class Task {
     @Column(name = "user_id", nullable = false)
     private int userId;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, columnDefinition = "enum('CREATED', 'WORKING', 'DONE', 'INVALID')")
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "status_id")
     private TaskStatus status;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "priority", nullable = false, columnDefinition = "enum('LOW', 'MID', 'HIGH', 'CRITICAL')")
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "priority_id", nullable = false)
     private TaskPriority priority;
 
     public int getId() {

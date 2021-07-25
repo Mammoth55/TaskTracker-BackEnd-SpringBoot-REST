@@ -28,15 +28,15 @@ public class TaskService {
         for (Task task : taskRepository.findAll()) {
             taskDtoResponse.getTasks().add(MAPPER.taskToDto(task));
         }
-        return new ResponseEntity(taskDtoResponse, HttpStatus.OK);
+        return new ResponseEntity<>(taskDtoResponse, HttpStatus.OK);
     }
 
-    public ResponseEntity<TaskDtoResponse> getAllTasksActualAndPriority() {
+    public ResponseEntity<TaskDtoResponse> getAllTasksActual() {
         TaskDtoResponse taskDtoResponse = new TaskDtoResponse();
-        for (Task task : taskRepository.findAllActualAndPriority()) {
+        for (Task task : taskRepository.findAllActual()) {
             taskDtoResponse.getTasks().add(MAPPER.taskToDto(task));
         }
-        return new ResponseEntity(taskDtoResponse, HttpStatus.OK);
+        return new ResponseEntity<>(taskDtoResponse, HttpStatus.OK);
     }
 
     public ResponseEntity<TaskDTO> getTaskById(int taskId) {
@@ -50,7 +50,7 @@ public class TaskService {
         for (Task task : taskRepository.findAllByQuery(query)) {
             taskDtoResponse.getTasks().add(MAPPER.taskToDto(task));
         }
-        return new ResponseEntity(taskDtoResponse, HttpStatus.OK);
+        return new ResponseEntity<>(taskDtoResponse, HttpStatus.OK);
     }
 
     public ResponseEntity<TaskDtoResponse> getTasksByDate(String date) {
@@ -58,12 +58,12 @@ public class TaskService {
         for (Task task : taskRepository.findAllByDate(date)) {
             taskDtoResponse.getTasks().add(MAPPER.taskToDto(task));
         }
-        return new ResponseEntity(taskDtoResponse, HttpStatus.OK);
+        return new ResponseEntity<>(taskDtoResponse, HttpStatus.OK);
     }
 
     public ResponseEntity<TaskDTO> createTask(TaskDTO dto) {
         Task task = taskRepository.save(MAPPER.dtoToTask(dto));
-        return new ResponseEntity(MAPPER.taskToDto(task), HttpStatus.OK);
+        return new ResponseEntity<>(MAPPER.taskToDto(task), HttpStatus.OK);
     }
 
     public ResponseEntity<TaskDTO> updateTask(TaskDTO dto, int taskId) {
@@ -72,7 +72,7 @@ public class TaskService {
         Task task = MAPPER.dtoToTask(dto);
         task.setId(taskId);
         taskRepository.save(task);
-        return new ResponseEntity(MAPPER.taskToDto(task), HttpStatus.OK);
+        return new ResponseEntity<>(MAPPER.taskToDto(task), HttpStatus.OK);
     }
 
     public ResponseEntity<TaskDTO> deleteTaskById(int taskId) {

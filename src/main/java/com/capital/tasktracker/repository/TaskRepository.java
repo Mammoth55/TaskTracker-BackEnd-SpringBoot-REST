@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Integer> {
 
-    @Query("FROM Task t where (t.status = 'CREATED' OR t.status = 'WORKING') ORDER BY t.priority desc")
-    List<Task> findAllActualAndPriority();
+    @Query("FROM Task t where (t.status = 'CREATED' OR t.status = 'WORKING')")
+    List<Task> findAllActual();
 
     @Query("FROM Task t where (t.text like %?1%) or (t.title like %?1%)")
     List<Task> findAllByQuery(String query);
