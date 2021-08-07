@@ -1,7 +1,5 @@
 package com.capital.tasktracker.dto;
 
-import com.capital.tasktracker.model.TaskPriority;
-import com.capital.tasktracker.model.TaskStatus;
 import java.sql.Timestamp;
 
 public class TaskDTO {
@@ -11,8 +9,8 @@ public class TaskDTO {
     private String text;
     private Timestamp time;
     private int userId;
-    private TaskStatus status;
-    private TaskPriority priority;
+    private String status;
+    private String priority;
 
     public int getId() {
         return id;
@@ -54,19 +52,19 @@ public class TaskDTO {
         this.userId = userId;
     }
 
-    public TaskStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(TaskStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public TaskPriority getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(TaskPriority priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 }
