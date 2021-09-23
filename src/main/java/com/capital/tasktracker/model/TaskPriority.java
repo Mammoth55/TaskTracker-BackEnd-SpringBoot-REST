@@ -1,7 +1,15 @@
 package com.capital.tasktracker.model;
 
 import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "priorities")
 public class TaskPriority {
@@ -14,19 +22,7 @@ public class TaskPriority {
     @Column(name = "priority", nullable = false, length = 20)
     private String priority;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getPriority() {
-        return priority;
-    }
-
-    public void setPriority(String priority) {
+    public TaskPriority(String priority) {
         this.priority = priority;
     }
 }

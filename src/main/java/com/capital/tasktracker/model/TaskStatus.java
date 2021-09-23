@@ -1,7 +1,15 @@
 package com.capital.tasktracker.model;
 
 import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "statuses")
 public class TaskStatus {
@@ -14,19 +22,7 @@ public class TaskStatus {
     @Column(name = "status", nullable = false, length = 20)
     private String status;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
+    public TaskStatus(String status) {
         this.status = status;
     }
 }
