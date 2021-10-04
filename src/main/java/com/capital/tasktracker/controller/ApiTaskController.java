@@ -42,12 +42,12 @@ public class ApiTaskController {
     }
 
     @PostMapping("/tasks")
-    public ResponseEntity<TaskDTO> createTask(@ModelAttribute("task") TaskDTO task) {
+    public ResponseEntity<TaskDTO> createTask(@RequestBody TaskDTO task) {
         return taskService.createTask(task);
     }
 
     @PatchMapping("/tasks/{taskId}")
-    public ResponseEntity<TaskDTO> updateTask(@PathVariable("taskId") int taskId, @ModelAttribute("task") TaskDTO task) {
+    public ResponseEntity<TaskDTO> updateTask(@PathVariable("taskId") int taskId, @RequestBody TaskDTO task) {
         return taskService.updateTask(task, taskId);
     }
 
